@@ -1,0 +1,2 @@
+# ImageMagickVisRef
+A visual reference
