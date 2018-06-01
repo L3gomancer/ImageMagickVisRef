@@ -12,7 +12,7 @@ so the exact cmd was
 
 
 heres the source sprite sheet
-(/images/bob.png)
+(/images/bobs.png)
 crop source img into rows. I saw dimensions in Finder and divided pixel height by number of rows, counted. so it's like "-crop to px <rightmost>x<lowest>"
 then
 `convert bobs-by-cleathley.png -crop 0x32 ../IMout/bobrows/b%02d.png`
@@ -23,6 +23,11 @@ go into results folder (but unneeded). Use bracket expansion to target a number 
 cd ...IMout/bobrows 
 convert b0{0..9}.png -crop 32x0 ../bobtiles/c%03d.png
 Produces
-(/c101.png)
+(/images/c028.png)
+(/images/c029.png)
+(/images/c030.png)
+(/images/c031.png)
 convert b1{0..9}.png -crop 32x0 ../bobtiles/d%03d.png
-(/d101.png)
+(/images/d198.png)
+(/images/d199.png)
+
