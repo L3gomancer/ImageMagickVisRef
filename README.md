@@ -2,45 +2,36 @@
 
 A visual reference
 
-Here's the dude  
-![a](images/dude.png)  
-I want to chop dude.png into frames
+To crop a sprite sheet  
+![a](/images/bobs.png)  
+do this
+> `convert bobs.png -crop 32x32 +repage d%03d.png`
 
-> `convert <in>.png -crop <width>x0 +repage <out>%02d.png`
+Produces  
+![a](images/c028.png)
 
-in this case I know dude <in> is 32px wide.  
-So type in convert, drag in dude, continue, drag in the output location +file naming convention.
-
-so the exact cmd was
-
-> `$ convert ~/dude-cropped.png -crop 32x0 +repage /out/d%02d.png`
-
-![a](images/d04.png)
+Tips:  
+Convert to gif before cropping to see the whitespace that pngs hide.  
+Output %03d cos it probably generates 100s of sprites.
+I probably do want to keep the rows anyway!
 
 ---
 
 </br>
 
-heres the source sprite sheet  
-![a](/images/bobs.png)  
-crop source img into rows. I saw dimensions in Finder 640x640 and divided pixel height by number of rows, 20. so it's like "`-crop to px <rightmost>x<lowest>`"
 
-then
+Here's the dude. I want frames.  
+![a](images/dude.png)  
+First convert png to gif to see whitespace better.
+> `convert dude.png dude.gif`  
 
-> `convert bobs.png -crop 0x32 +repage ../bobrows/b%02d.png`
+the syntax to crop is a bit like this:  
+> `convert <in> -crop <w>x<h> +repage <out>%02d.png`
 
-to get 19 rows  
-![a](images/b00.png)  
-![a](images/b01.png)  
-go into results folder (but unneeded). Use bracket expansion to target a number range of named files. in this case we need to split it as {00..19} wont work.
+In this case I know dude is 32px wide. So type "convert", drag in dude, continue, drag in the output location +file naming convention.
 
-> `cd bobrows`  
-> `convert b0{0..9}.png -crop 32x0 +repage ../bobtiles/c%03d.png`
+so the cmd was
 
-Produces  
-![a](images/c028.png)
+> `$ convert ~/dude-cropped.png -crop 32x0 +repage d%02d.png`
 
-> `convert b1{0..9}.png -crop 32x0 +repage ../bobtiles/d%03d.png`
-
-![a](images/d198.png)
-![a](images/d199.png)
+![a](images/d04.png)
