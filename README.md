@@ -12,22 +12,22 @@ so the exact cmd was
 
 
 heres the source sprite sheet
-(/images/bobs.png)
+![a](/images/bobs.png)
 crop source img into rows. I saw dimensions in Finder and divided pixel height by number of rows, counted. so it's like "-crop to px <rightmost>x<lowest>"
 then
 `convert bobs-by-cleathley.png -crop 0x32 ../IMout/bobrows/b%02d.png`
 to get 19 rows
-(/images/b00.png)
-(/images/b01.png)
+![a](/images/b00.png)
+![a](/images/b01.png)
 go into results folder (but unneeded). Use bracket expansion to target a number range of named files. in this case we need to split it as {00..19} wont work.
 cd ...IMout/bobrows 
 convert b0{0..9}.png -crop 32x0 ../bobtiles/c%03d.png
 Produces
-(/images/c028.png)
-(/images/c029.png)
-(/images/c030.png)
-(/images/c031.png)
+![a](/images/c028.png)
+![a](/images/c029.png)
+![a](/images/c030.png)
+![a](/images/c031.png)
 convert b1{0..9}.png -crop 32x0 ../bobtiles/d%03d.png
-(/images/d198.png)
-(/images/d199.png)
+![a](/images/d198.png)
+![a](/images/d199.png)
 
