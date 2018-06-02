@@ -58,27 +58,27 @@ append in a stack
 ---
 
 
-For offset, the origin (0,0) is upper-left corner. (w)x(h)(+right)(+down)
-The following negatively colours a (tall) area
-First in topL corner 10px to the right, 20px down. turned a yellow star blue
->`magick logo: -region '100x200+10+20' -negate wizNeg1.png`
+For offset, the origin (0,0) is upper-left corner. (w)x(h)(+right)(+down)  
+The following negatively colours a (tall) area:  
+First in topL corner 10px to the right, 20px down. turned a red rose blue
+>`magick rose: -region '100x200+10+20' -negate rNeg1.gif`
 
-![a](images/wizNeg1.png)
+![a](images/rNeg1.gif)
 
-This spills off the L edge
->`magick logo: -region '100x200-10+20' -negate wizNeg2.png`
+This spills off the left edge
+>`magick rose: -region '100x200-10+20' -negate rNeg2.gif`
 
-![a](images/wizNeg2.png)
+![a](images/rNeg2.gif)
 
 This resets the origin (0,0) to the centre so offset is below+L of it.
->`magick logo: -gravity center -region '100x200-10+20' -negate wizNeg3.png`
+>`magick rose: -gravity center -region '100x200-10+20' -negate rNeg3.gif`
 
-![a](images/wizNeg3.png)
+![a](images/rNeg3.gif)
 
 dead centre
->`magick logo: -gravity center -region '100x200' -negate wizNeg4.png`
+>`magick rose: -gravity center -region '100x200' -negate rNeg4.gif`
 
-![a](images/wizNeg4.png)
+![a](images/rNeg4.gif)
 
 ---
 
