@@ -32,6 +32,12 @@ In this case I know dude is 32px wide. So type "convert", drag in dude, continue
 
 so the cmd was
 
-> `$ convert ~/dude-cropped.png -crop 32x0 +repage d%02d.png`
+> `convert ~/dude-cropped.png -crop 32x0 +repage d%02d.png`
 
 ![a](images/d04.png)
+
+---
+
+source  
+
+> `magick d00%d.gif[0-7] bl.gif`
