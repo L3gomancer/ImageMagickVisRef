@@ -11,6 +11,8 @@ Produces
 ![a](images/c028.png)
 
 ---
+
+
 Tips:  
 Convert to gif before cropping to see the whitespace that pngs hide.  
 Output %03d cos it probably generates 100s of sprites.
@@ -53,5 +55,39 @@ append in a stack
 ---
 
 source  
+Make a gif
 
 > `magick d00%d.gif[0-7] bl.gif`
+
+---
+
+Generate a builtin image
+>`magick rose: rose.gif`
+
+---
+
+
+For offset, the origin (0,0) is upper-left corner. (w)x(h)(+right)(+down)
+The following negatively colours a (tall) area
+First in topL corner 10px to the right, 20px down. turned a yellow star blue
+>`magick logo: -region '100x200+10+20' -negate wizNeg1.png`
+
+![a](images/wizNeg1.png)
+
+This spills off the L edge
+>`magick logo: -region '100x200-10+20' -negate wizNeg2.png`
+
+![a](images/wizNeg2.png)
+
+This resets the origin (0,0) to the centre so offset is below+L of it.
+>`magick logo: -gravity center -region '100x200-10+20' -negate wizNeg3.png`
+
+![a](images/wizNeg3.png)
+
+dead centre
+>`magick logo: -gravity center -region '100x200' -negate wizNeg4.png`
+
+![a](images/wizNeg4.png)
+
+
+
