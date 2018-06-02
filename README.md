@@ -38,6 +38,20 @@ so the cmd was
 
 ---
 
+append in a row
+![a](images/d019.gif) ![a](images/d120.gif) ![a](images/d121.gif)  
+>`magick d019.gif d120.gif d121.gif +append tv1.gif`
+
+![a](images/tv1.gif)
+
+append in a stack
+$ magick d019.gif d120.gif d121.gif -append tv1.gif
+tv1.gif
+
+
+
+---
+
 source  
 
 > `magick d00%d.gif[0-7] bl.gif`
