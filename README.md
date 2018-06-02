@@ -10,6 +10,7 @@ do this
 Produces  
 ![a](images/c028.png)
 
+---
 Tips:  
 Convert to gif before cropping to see the whitespace that pngs hide.  
 Output %03d cos it probably generates 100s of sprites.
@@ -37,18 +38,17 @@ so the cmd was
 ![a](images/d04.png)
 
 ---
-
-append in a row
+source sprites
 ![a](images/d019.gif) ![a](images/d120.gif) ![a](images/d121.gif)  
+append in a row
 >`magick d019.gif d120.gif d121.gif +append tv1.gif`
 
 ![a](images/tv1.gif)
 
-append in a stack
-$ magick d019.gif d120.gif d121.gif -append tv1.gif
-tv1.gif
+append in a stack  
+>`magick d019.gif d120.gif d121.gif -append tv1.gif`
 
-
+![a](images/tv2.gif)
 
 ---
 
