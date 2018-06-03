@@ -46,9 +46,13 @@ In this case I know dude is 32px wide
 source sprites
 ![a](images/d019.gif) ![a](images/d120.gif) ![a](images/d121.gif)  
 append in a row
->`magick d1.gif d2.gif d3.gif +append tv1.gif`
+>`magick d009.gif d010.gif d011.gif +append tv1.gif`
 
 ![a](images/tv1.gif)
+
+Can also do above based on filename number!
+
+>`magick d%03d.gif[9-11] +append tv1.gif`
 
 append in a stack  
 >`magick d1.gif d2.gif d3.gif -append tv1.gif`
