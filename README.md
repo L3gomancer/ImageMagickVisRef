@@ -38,16 +38,16 @@ $ `convert null: b00.gif -crop 32x0 +repage f%02d.gif`
 
 Crop 10px from the top  
 $ `convert in.gif -crop +0+10 +repage ftop.gif`  
-![a](images/ftop.png)  
+![a](images/ftop.gif)  
 Crop 10px from the left  
 $ `convert in.gif -crop +10+0 +repage fleft.gif`  
-![a](images/fleft.png)  
+![a](images/fleft.gif)  
 Crop 10px from the right  
 $ `convert in.gif -crop -10+0 +repage fright.gif`  
-![a](images/fright.png)  
+![a](images/fright.gif)  
 Crop 10px from the bottom  
 $ `convert in.gif -crop +0-10 +repage fbtm.gif`  
-![a](images/fbtm.png)  
+![a](images/fbtm.gif)  
 
 
 
