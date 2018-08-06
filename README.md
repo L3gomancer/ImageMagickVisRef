@@ -26,7 +26,12 @@ Produces
 
 ---
 
-Rows
+Rows  
+Crop horizontal strips  
+$ `convert in.gif -crop 0x20 +repage out%02d.gif`  
+Crop vertical strips  
+$ `convert in.gif -crop 20x0 +repage out%02d.gif`  
+
 
 ---
 
