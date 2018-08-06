@@ -50,14 +50,14 @@ append in a row
 
 ![a](images/tv1.gif)
 
-Can also do above based on filename number!
-
->`magick d%03d.gif[9-11] +append tv1.gif`
-
 append in a stack  
 >`magick d1.gif d2.gif d3.gif -append tv1.gif`
 
 ![a](images/tv2.gif)
+
+Can also do above based on filename number!
+
+>`magick d%03d.gif[9-11] +append tv1.gif`
 
 ---
 
@@ -86,7 +86,6 @@ dead centre
 
 ---
 
-source  
 Make a gif
 
 > `magick d00%d.gif[0-7] bl.gif`
