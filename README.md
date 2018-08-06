@@ -11,8 +11,8 @@ $ `magick rose: rose.gif`
 
 ---
 
-convert png to gif (to see whitespace better)  
-$ `convert dude.png dude.gif`  
+convert png to gif to remove whitespace  
+$ `convert dude.png +repage dude.gif`  
 
 ---
 
