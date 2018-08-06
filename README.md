@@ -33,21 +33,21 @@ $ `convert bobs.gif -crop 0x32 +repage b%02d.gif`
 ![a](images/b01.png)  
 
 And just swap the dimensions for vertical. Notice indexing starts 00, 01... but what if I want pics to start on 01? Use "null:" padding   
-$ `convert null: b00.gif -crop 32x0 +repage out%02d.gif`  
+$ `convert null: b00.gif -crop 32x0 +repage f%02d.gif`  
 ![a](images/f01.gif) ![a](images/f02.gif)  
 
-Crop 10px from the top
-$ convert in.gif -crop +0+10 +repage out_top.gif
-![a](images/dude.png)  
-Crop 10px from the left
-$ convert in.gif -crop +10+0 +repage out_left.gif
-![a](images/dude.png)  
-Crop 10px from the right
-$ convert in.gif -crop -10+0 +repage out_right.gif
-![a](images/dude.png)  
-Crop 10px from the bottom
-$ convert in.gif -crop +0-10 +repage out_btm.gif
-![a](images/dude.png)  
+Crop 10px from the top  
+$ `convert in.gif -crop +0+10 +repage ftop.gif`  
+![a](images/ftop.png)  
+Crop 10px from the left  
+$ `convert in.gif -crop +10+0 +repage fleft.gif`  
+![a](images/fleft.png)  
+Crop 10px from the right  
+$ `convert in.gif -crop -10+0 +repage fright.gif`  
+![a](images/fright.png)  
+Crop 10px from the bottom  
+$ `convert in.gif -crop +0-10 +repage fbtm.gif`  
+![a](images/fbtm.png)  
 
 
 
