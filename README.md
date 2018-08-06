@@ -28,9 +28,28 @@ Produces
 
 Rows  
 Crop horizontal strips  
-$ `convert in.gif -crop 0x20 +repage out%02d.gif`  
-Crop vertical strips  
-$ `convert in.gif -crop 20x0 +repage out%02d.gif`  
+$ `convert bobs.gif -crop 0x32 +repage b%02d.gif`  
+![a](images/b00.png)  
+![a](images/b01.png)  
+
+And just swap the dimensions for vertical. Notice indexing starts 00, 01... but what if I want pics to start on 01? Use "null:" padding   
+$ `convert null: b00.gif -crop 32x0 +repage out%02d.gif`  
+![a](images/f01.gif) ![a](images/f02.gif)  
+
+Crop 10px from the top
+$ convert in.gif -crop +0+10 +repage out_top.gif
+![a](images/dude.png)  
+Crop 10px from the left
+$ convert in.gif -crop +10+0 +repage out_left.gif
+![a](images/dude.png)  
+Crop 10px from the right
+$ convert in.gif -crop -10+0 +repage out_right.gif
+![a](images/dude.png)  
+Crop 10px from the bottom
+$ convert in.gif -crop +0-10 +repage out_btm.gif
+![a](images/dude.png)  
+
+
 
 
 ---
@@ -43,7 +62,7 @@ Here's the dude. I want frames.
 
 In this case I know dude is 32px wide
 
-$ `convert ~/dude-cropped.png -crop 32x0 +repage ~/d%02d.png`
+$ `convert dude-cropped.png -crop 32x0 +repage d%02d.png`
 
 ![a](images/d04.png)
 
