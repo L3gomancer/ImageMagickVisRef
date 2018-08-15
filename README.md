@@ -16,6 +16,16 @@ $ `convert dude.png +repage dude.gif`
 
 ---
 
+Scale
+Avoid blur with -scale and a whole fraction %
+Double blow up:
+$ convert in.gif  -scale 200%  out.gif
+Half shrink:
+$ convert in.gif  -scale 50%  out.gif
+
+
+---
+
 To crop a sprite sheet  
 ![a](/images/bobs.png)  
 do this  
@@ -48,9 +58,6 @@ $ `convert in.gif -crop -10+0 +repage fright.gif`
 Crop 10px from the bottom  
 $ `convert in.gif -crop +0-10 +repage fbtm.gif`  
 ![a](images/fbtm.gif)  
-
-
-
 
 ---
 
