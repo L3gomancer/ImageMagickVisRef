@@ -6,6 +6,7 @@
 
 Generate a builtin image  
 $ `magick rose: rose.gif`
+
 ![a](images/rose.gif)  
 
 ---
