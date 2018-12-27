@@ -6,7 +6,6 @@
 
 Generate a builtin image  
 $ `magick rose: rose.gif`
-
 ![a](images/rose.gif)  
 
 ---
@@ -19,9 +18,9 @@ $ `convert dude.png +repage dude.gif`
 Scale
 Avoid blur with -scale and a whole fraction %  
 Double blow up:  
-$ convert in.gif  -scale 200%  out.gif  
+$ `convert in.gif  -scale 200%  out.gif`  
 Half shrink:  
-$ convert in.gif  -scale 50%  out.gif  
+$ `convert in.gif  -scale 50%  out.gif`  
 
 
 ---
