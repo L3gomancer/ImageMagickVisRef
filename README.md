@@ -4,13 +4,6 @@
 
 ---
 
-Generate a builtin image  
-\$ `magick rose: rose.gif`
-
-![a](images/rose.gif)
-
----
-
 convert png to gif to remove whitespace  
 \$ `convert dude.png +repage dude.gif`
 
@@ -45,6 +38,15 @@ And just swap the dimensions for vertical. Notice indexing starts 00, 01... but 
 \$ `convert null: b00.gif -crop 32x0 +repage f%02d.gif`  
 ![a](images/f01.gif) ![a](images/f02.gif)
 
+---
+
+Generate a builtin image  
+\$ `magick rose: rose.gif`
+
+![a](images/rose.gif)
+
+---
+
 Crop 10px from the top  
 \$ `convert in.gif -crop +0+10 +repage ftop.gif`  
 ![a](images/ftop.gif)  
@@ -60,8 +62,6 @@ Crop 10px from the bottom
 
 ---
 
-</br>
-
 Here's the dude. I want frames.  
 ![a](images/dude.png)
 
@@ -73,25 +73,26 @@ In this case I know dude is 32px wide
 
 ---
 
-source sprites
-![a](images/d019.gif) ![a](images/d120.gif) ![a](images/d121.gif)  
-append in a row  
+Source sprites
+![a](images/d019.gif ), ![a](images/d120.gif) , ![a](images/d121.gif)  
+
+Append in a row  
 \$ `magick d009.gif d010.gif d011.gif +append tv1.gif`
 
 ![a](images/tv1.gif)
 
-append in a stack  
+Append in a stack  
 \$ `magick d1.gif d2.gif d3.gif -append tv1.gif`
 
 ![a](images/tv2.gif)
 
-Can also do above based on filename number!
-
+This can also be done based on filename number  
 \$ `magick d%03d.gif[9-11] +append tv1.gif`
 
 ---
 
-For offset, the origin (0,0) is upper-left corner. (w)x(h)(+right)(+down)  
+For offset, the origin (0,0) is upper-left corner.  
+(w)x(h)(+right)(+down)  
 The following negatively colours a (tall) area:  
 First in topL corner 10px to the right, 20px down. turned a red rose blue  
 \$ `magick rose: -region '100x200+10+20' -negate rNeg1.gif`
@@ -115,11 +116,8 @@ dead centre
 
 ---
 
-Make a gif
-
+Make a gif  
 \$ `magick d00%d.gif[0-7] bl.gif`
-
-</br>
 
 ---
 
