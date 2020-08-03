@@ -19,7 +19,7 @@ Half shrink:
 ---
 
 To crop a sprite sheet  
-![a](/images/bob2.gif)  
+![a](images/bob2.gif)  
 do this  
 \$ `convert bobs.gif -crop 32x32 +repage d%03d.gif`
 
@@ -74,7 +74,7 @@ In this case I know dude is 32px wide
 ---
 
 Source sprites
-![a](images/d019.gif ), ![a](images/d120.gif) , ![a](images/d121.gif)  
+![a](images/d019.gif), ![a](images/d120.gif) , ![a](images/d121.gif)
 
 Append in a row  
 \$ `magick d009.gif d010.gif d011.gif +append tv1.gif`
