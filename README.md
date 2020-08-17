@@ -4,20 +4,6 @@
 
 ---
 
-convert png to gif to remove whitespace  
-\$ `convert dude.png +repage dude.gif`
-
----
-
-Scale
-Avoid blur with -scale and a whole fraction %  
-Double blow up:  
-\$ `convert in.gif -scale 200% out.gif`  
-Half shrink:  
-\$ `convert in.gif -scale 50% out.gif`
-
----
-
 To crop a sprite sheet  
 ![a](images/bob2.gif)  
 do this  
@@ -40,10 +26,14 @@ And just swap the dimensions for vertical. Notice indexing starts 00, 01... but 
 
 ---
 
-Generate a builtin image  
-\$ `magick rose: rose.gif`
+Here's the dude. I want frames.  
+![a](images/dude.png)
 
-![a](images/rose.gif)
+In this case I know dude is 32px wide
+
+\$ `convert dude-cropped.png -crop 32x0 +repage d%02d.png`
+
+![a](images/d04.png)
 
 ---
 
@@ -59,35 +49,6 @@ Crop 10px from the right
 Crop 10px from the bottom  
 \$ `convert in.gif -crop +0-10 +repage fbtm.gif`  
 ![a](images/fbtm.gif)
-
----
-
-Here's the dude. I want frames.  
-![a](images/dude.png)
-
-In this case I know dude is 32px wide
-
-\$ `convert dude-cropped.png -crop 32x0 +repage d%02d.png`
-
-![a](images/d04.png)
-
----
-
-Source sprites
-![a](images/d019.gif), ![a](images/d120.gif) , ![a](images/d121.gif)
-
-Append in a row  
-\$ `magick d009.gif d010.gif d011.gif +append tv1.gif`
-
-![a](images/tv1.gif)
-
-Append in a stack  
-\$ `magick d1.gif d2.gif d3.gif -append tv1.gif`
-
-![a](images/tv2.gif)
-
-This can also be done based on filename number  
-\$ `magick d%03d.gif[9-11] +append tv1.gif`
 
 ---
 
@@ -116,8 +77,47 @@ dead centre
 
 ---
 
+Source sprites
+![a](images/d019.gif), ![a](images/d120.gif) , ![a](images/d121.gif)
+
+Append in a row  
+\$ `magick d009.gif d010.gif d011.gif +append tv1.gif`
+
+![a](images/tv1.gif)
+
+Append in a stack  
+\$ `magick d1.gif d2.gif d3.gif -append tv1.gif`
+
+![a](images/tv2.gif)
+
+This can also be done based on filename number  
+\$ `magick d%03d.gif[9-11] +append tv1.gif`
+
+---
+
 Make a gif  
 \$ `magick d00%d.gif[0-7] bl.gif`
+
+---
+
+Generate a builtin image  
+\$ `magick rose: rose.gif`
+
+![a](images/rose.gif)
+
+---
+
+convert png to gif to remove whitespace  
+\$ `convert dude.png +repage dude.gif`
+
+---
+
+Scale
+Avoid blur with -scale and a whole fraction %  
+Double blow up:  
+\$ `convert in.gif -scale 200% out.gif`  
+Half shrink:  
+\$ `convert in.gif -scale 50% out.gif`
 
 ---
 
