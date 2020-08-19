@@ -2,7 +2,7 @@
 
 <br>
 
-Example sprite sheet:  
+Example sprite sheet  
 ![a](images/bob2.gif)  
 To extract the sprites, use tile cropping  
 \$ `convert bobs.gif -crop 32x32 +repage d%03d.gif`
@@ -25,7 +25,7 @@ Notice indexing starts 00, 01... but what if I want it to start with 01? Use nul
 
 ---
 
-Example row of sprites:  
+Example row of sprites  
 ![a](images/dude.png)
 
 I can crop the sprites if I know their dimensions. In this case 32 pixels wide  
@@ -108,9 +108,9 @@ Convert png to gif
 ---
 
 Scale with -scale. Use a whole fraction to avoid blur  
-Blow up double size:  
+Blow up double size  
 \$ `convert in.gif -scale 200% out.gif`  
-Shrink half size:  
+Shrink half size  
 \$ `convert in.gif -scale 50% out.gif`
 
 ---
