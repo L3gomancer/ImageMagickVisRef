@@ -4,6 +4,7 @@
 
 <!-- CHANGE example sprite sheet in Lesson Sprite Crop -->
 <!-- CHANGE badly cropped blank TV in Lesson Append -->
+<!-- Put up-arrow emoji in Lesson row crop -->
 
 Example sprite sheet  
 ![a](images/bob2.gif)  
