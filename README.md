@@ -97,6 +97,13 @@ Generate a gif with several input images and one output image. A Bash range can 
 
 ---
 
+Built in images:  
+xc: - Block colour. State the size  
+logo: - 640x480 ImageMagick Logo  
+wizard: - 480x640 ImageMagick mascot  
+rose: - 70x46, rose  
+null: - 1x1 transparent pixel
+
 Generate a builtin image  
 \$ `magick rose: rose.gif`
 
