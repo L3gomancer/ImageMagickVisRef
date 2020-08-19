@@ -1,49 +1,49 @@
-## ImageMagickVisRef
+## ImageMagick Visual Reference
 
-### A visual reference
+<br>
 
----
-
-To crop a sprite sheet  
+Example sprite sheet:  
 ![a](images/bob2.gif)  
-do this  
+To extract the sprites, use tile cropping  
 \$ `convert bobs.gif -crop 32x32 +repage d%03d.gif`
 
-Produces  
+Results  
 ![a](images/c028.png)
 
 ---
 
-Rows  
-Crop horizontal strips  
+To crop horizontal strips form a sprite sheet  
 \$ `convert bobs.gif -crop 0x32 +repage b%02d.gif`  
 ![a](images/b00.png)  
 ![a](images/b01.png)
+For vertical strips just swap the dimensions.
 
-And just swap the dimensions for vertical. Notice indexing starts 00, 01... but what if I want pics to start on 01? Use "null:" padding  
+Notice indexing starts 00, 01... but what if I want it to start with 01? Use null: padding  
 \$ `convert null: b00.gif -crop 32x0 +repage f%02d.gif`  
-![a](images/f01.gif) ![a](images/f02.gif)
+![a](images/f01.gif) ![a](images/f02.gif)  
+^ f01.gif ^ f02.gif
 
 ---
 
-Here's the dude. I want frames.  
+Example row of sprites:  
 ![a](images/dude.png)
 
-In this case I know dude is 32px wide
-
-\$ `convert dude-cropped.png -crop 32x0 +repage d%02d.png`
-
+I can crop the sprites if I know their dimensions. In this case 32 pixels wide  
+\$ `convert dude-cropped.png -crop 32x0 +repage d%02d.png`  
 ![a](images/d04.png)
 
 ---
 
-Crop 10px from the top  
+Example image  
+![a](images/rose.gif)
+
+Crop 10 pixels from the top  
 \$ `convert in.gif -crop +0+10 +repage ftop.gif`  
 ![a](images/ftop.gif)  
-Crop 10px from the left  
+Crop 10 pixels from the left  
 \$ `convert in.gif -crop +10+0 +repage fleft.gif`  
 ![a](images/fleft.gif)  
-Crop 10px from the right  
+Crop 10 pixels from the right  
 \$ `convert in.gif -crop -10+0 +repage fright.gif`  
 ![a](images/fright.gif)  
 Crop 10px from the bottom  
@@ -52,50 +52,45 @@ Crop 10px from the bottom
 
 ---
 
-For offset, the origin (0,0) is upper-left corner.  
-(w)x(h)(+right)(+down)  
-The following negatively colours a (tall) area:  
-First in topL corner 10px to the right, 20px down. turned a red rose blue  
-\$ `magick rose: -region '100x200+10+20' -negate rNeg1.gif`
+The origin (0,0) is in the upper-left corner.  
+Dimensions and offset take this syntax: (w)x(h)(+right)(+down).  
+The "-negate" option negatively colours an area.
 
+Negate an area, topL corner, 10px to the right, 20px down  
+\$ `magick rose: -region '100x200+10+20' -negate rNeg1.gif`  
 ![a](images/rNeg1.gif)
 
-This spills off the left edge  
-\$ `magick rose: -region '100x200-10+20' -negate rNeg2.gif`
-
+Area spills off the left edge  
+\$ `magick rose: -region '100x200-10+20' -negate rNeg2.gif`  
 ![a](images/rNeg2.gif)
 
-This resets the origin (0,0) to the centre so offset is below+L of it.  
-\$ `magick rose: -gravity center -region '100x200-10+20' -negate rNeg3.gif`
-
+Set the origin (0,0) to the centre. Negate an area below and left of the origin  
+\$ `magick rose: -gravity center -region '100x200-10+20' -negate rNeg3.gif`  
 ![a](images/rNeg3.gif)
 
-dead centre  
-\$ `magick rose: -gravity center -region '100x200' -negate rNeg4.gif`
-
+Negate an area centre  
+\$ `magick rose: -gravity center -region '100x200' -negate rNeg4.gif`  
 ![a](images/rNeg4.gif)
 
 ---
 
-Source sprites
+Example images  
 ![a](images/d019.gif), ![a](images/d120.gif) , ![a](images/d121.gif)
 
-Append in a row  
-\$ `magick d009.gif d010.gif d011.gif +append tv1.gif`
-
+Append the images in a row  
+\$ `magick d009.gif d010.gif d011.gif +append tv1.gif`  
 ![a](images/tv1.gif)
 
-Append in a stack  
-\$ `magick d1.gif d2.gif d3.gif -append tv1.gif`
-
+Append the images in a stack  
+\$ `magick d1.gif d2.gif d3.gif -append tv1.gif`  
 ![a](images/tv2.gif)
 
-This can also be done based on filename number  
+If the filenames follow a consistent number pattern then a Bash range can select several files  
 \$ `magick d%03d.gif[9-11] +append tv1.gif`
 
 ---
 
-Make a gif  
+Generate a gif with several input images and one output image. A Bash range can help  
 \$ `magick d00%d.gif[0-7] bl.gif`
 
 ---
