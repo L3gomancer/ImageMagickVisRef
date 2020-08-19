@@ -115,6 +115,11 @@ Shrink half size
 
 ---
 
+To add a 1px white border to the left side (sptsheets) do  
+\$ `convert null: v01.png +append a3.png`
+
+---
+
 Tips:  
 Convert a PNG to GIF before cropping to see the whitespace that PNGs hide.  
 Pad the output to 3 digits with `%03d`. Under 100 results images should be enough.
