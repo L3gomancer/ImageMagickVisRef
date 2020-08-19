@@ -2,6 +2,9 @@
 
 <br>
 
+<!-- CHANGE example sprite sheet in Lesson Sprite Crop -->
+<!-- CHANGE badly cropped blank TV in Lesson Append -->
+
 Example sprite sheet  
 ![a](images/bob2.gif)  
 To extract the sprites, use tile cropping  
@@ -77,8 +80,6 @@ Negate an area centre
 Example images  
 ![a](images/d019.gif), ![a](images/d120.gif) , ![a](images/d121.gif)
 
-<!-- CHANGE bad-cropped blank TV! -->
-
 Append the images in a row  
 \$ `magick d009.gif d010.gif d011.gif +append tv1.gif`  
 ![a](images/tv1.gif)
@@ -92,7 +93,7 @@ If the filenames follow a consistent number pattern then a Bash range can select
 
 ---
 
-Generate a gif with several input images and one output image. A Bash range can help  
+To generate an animated gif with several input images and one output image. A Bash range can help  
 \$ `magick d00%d.gif[0-7] bl.gif`
 
 ---
@@ -111,12 +112,15 @@ Generate a builtin image
 
 ---
 
-Convert png to gif  
+Convert a png to gif  
 \$ `convert dude.png +repage dude.gif`
+
+Convert many images  
+\$ `convert * +repage %03d.gif`
 
 ---
 
-Scale with -scale. Use a whole fraction to avoid blur  
+Scale with `-scale`. Use a whole fraction to avoid blur.  
 Blow up double size  
 \$ `convert in.gif -scale 200% out.gif`  
 Shrink half size  
@@ -138,3 +142,4 @@ Rotate
 Tips:  
 Convert a PNG to GIF before cropping to see the whitespace that PNGs hide.  
 Pad the output to 3 digits with `%03d`. Under 100 results images should be enough.
+Remember Bash tricks when selecting input images, globs, wildcards, ranges, expansions.
