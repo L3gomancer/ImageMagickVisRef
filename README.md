@@ -102,21 +102,19 @@ Generate a builtin image
 
 ---
 
-convert png to gif to remove whitespace  
+Convert png to gif  
 \$ `convert dude.png +repage dude.gif`
 
 ---
 
-Scale
-Avoid blur with -scale and a whole fraction %  
-Double blow up:  
+Scale with -scale. Use a whole fraction to avoid blur  
+Blow up double size:  
 \$ `convert in.gif -scale 200% out.gif`  
-Half shrink:  
+Shrink half size:  
 \$ `convert in.gif -scale 50% out.gif`
 
 ---
 
 Tips:  
-Convert to gif before cropping to see the whitespace that pngs hide.  
-Output %03d cos it probably generates 100s of sprites.
-I probably do want to keep the rows anyway!
+Convert a PNG to GIF before cropping to see the whitespace that PNGs hide.  
+Pad the output to 3 digits with `%03d`. Under 100 results images should be enough.
