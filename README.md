@@ -77,6 +77,8 @@ Negate an area centre
 Example images  
 ![a](images/d019.gif), ![a](images/d120.gif) , ![a](images/d121.gif)
 
+<!-- CHANGE bad-cropped blank TV! -->
+
 Append the images in a row  
 \$ `magick d009.gif d010.gif d011.gif +append tv1.gif`  
 ![a](images/tv1.gif)
@@ -117,6 +119,12 @@ Shrink half size
 
 To add a 1px white border to the left side (sptsheets) do  
 \$ `convert null: v01.png +append a3.png`
+
+---
+
+Rotate  
+\$ `convert in.jpg -rotate 90 out.jpg`  
+\$ `convert in.jpg -rotate -90 out.jpg`
 
 ---
 
