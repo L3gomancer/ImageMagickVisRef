@@ -75,15 +75,15 @@ Negate an area centre
 ---
 
 Example images  
-![a](images/d019.gif), ![a](images/d120.gif) , ![a](images/d121.gif)
+![a](images/d120.gif) , ![a](images/d121.gif), ![a](images/d131.gif)
 
 Append the images in a row  
-\$ `magick d009.gif d010.gif d011.gif +append tv1.gif`  
-![a](images/tv1.gif)
+\$ `magick tvfuzz1.gif tvfuzz2.gif tvtest.gif +append tv1.gif`  
+![a](images/tvs1.gif)
 
 Append the images in a stack  
-\$ `magick d1.gif d2.gif d3.gif -append tv1.gif`  
-![a](images/tv2.gif)
+\$ `magick tvfuzz1.gif tvfuzz2.gif tvtest.gif -append tv2.gif`  
+![a](images/tvs2.gif)
 
 If the filenames follow a consistent number pattern then a Bash range can select several files  
 \$ `magick d%03d.gif[9-11] +append tv1.gif`
