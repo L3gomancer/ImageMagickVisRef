@@ -92,6 +92,7 @@ If the filenames follow a consistent number pattern then a Bash range can select
 
 To generate an animated gif with several input images and one output image. A Bash range can help  
 \$ `magick d00%d.gif[0-7] bl.gif`
+![a](images/ac.gif)
 
 ---
 
