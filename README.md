@@ -2,7 +2,7 @@
 
 <br>
 
-Example sprite sheet  
+Example sprite sheet with consistent sprite sizes and no spacing or margins  
 ![a](images/bob2.gif)  
 To extract the sprites, use tile cropping  
 \$ `convert bobs.gif -crop 32x32 +repage d%03d.gif`
@@ -12,13 +12,12 @@ Results
 
 ---
 
-To crop horizontal strips form a sprite sheet  
+To crop horizontal strips from a sprite sheet  
 \$ `convert bobs.gif -crop 0x32 +repage b%02d.gif`  
-![a](images/b00.png)  
 ![a](images/b01.png)
 For vertical strips just swap the dimensions.
 
-Notice indexing starts 00, 01... but what if I want it to start with 01? Use null: padding  
+Automatic filename numbering is done with `%02d` which means two digit numbers padded with zeroes, starting at 00. But what if we want it to start at 01? Use `null:`  
 \$ `convert null: b00.gif -crop 32x0 +repage f%02d.gif`  
 ![a](images/f01.gif) ![a](images/f02.gif)  
 ^ f01.gif ^ f02.gif
@@ -90,7 +89,7 @@ If the filenames follow a consistent number pattern then a Bash range can select
 
 ---
 
-To generate an animated gif with several input images and one output image. A Bash range can help  
+To generate an animated gif, use several input images and one output image. A Bash range can help  
 \$ `magick d00%d.gif[0-7] bl.gif`  
 ![a](images/ac.gif)
 
@@ -104,16 +103,20 @@ rose: - 70x46, rose
 null: - 1x1 transparent pixel
 
 Generate a builtin image  
-\$ `magick rose: rose.gif`
-
+\$ `magick rose: rose.gif`  
 ![a](images/rose.gif)
+
+Generate a black box  
+\$ `convert -size 100x100 xc:black black.gif`  
+![a](images/black.gif)
+
 
 ---
 
 Convert a png to gif  
 \$ `convert dude.png +repage dude.gif`
 
-Convert many images  
+Convert all files in the current folder  
 \$ `convert * +repage %03d.gif`
 
 ---
@@ -126,7 +129,7 @@ Shrink half size
 
 ---
 
-To add a 1px white border to the left side (sptsheets) do  
+To add a 1px white border to the left side (spritesheets)  
 \$ `convert null: v01.png +append a3.png`
 
 ---
@@ -139,5 +142,5 @@ Rotate
 
 Tips:  
 Convert a PNG to GIF before cropping to see the whitespace that PNGs hide.  
-Pad the output to 3 digits with `%03d`. Under 100 results images should be enough.
+Pad the output to 3 digits with `%03d`, up to 999. Pad more if more than 10 by 10 tiles in a sheet.  
 Remember Bash tricks when selecting input images, globs, wildcards, ranges, expansions.
