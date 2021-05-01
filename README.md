@@ -47,7 +47,7 @@ Crop can also extract an area of the image if you include an offset
 `convert in.gif -crop 50x10+10+20 +repage out.gif`  
 ![a](images/roe.gif)  
 
-By the way, `+repage` readjusts the canvas to match the final image size after cropping. Without it, the original canvas remains with black background  
+By the way, `+repage` readjusts the canvas to match the final image size after cropping. Without it, the original canvas remains with transparent background  
 `convert in.gif -crop 50x10+10+20 out.gif`  
 ![a](images/ro.gif)  
 
