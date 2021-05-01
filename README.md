@@ -8,7 +8,7 @@ To extract the sprites, use tile cropping
 \$ `convert bobs.gif -crop 32x32 +repage d%03d.gif`
 
 Results  
-![a](images/d312.gif) ![a](images/spacer.gif) ![a](images/d333.png) ![a](images/spacer.gif) ![a](images/d354.png) 
+![a](images/d312.gif) ![a](images/spacer.gif) ![a](images/d333.gif) ![a](images/spacer.gif) ![a](images/d354.gif) 
 
 ---
 
@@ -45,9 +45,11 @@ Crop 10 pixels from the right
 
 Crop can also extract an area of the image if you include an offset  
 `convert in.gif -crop 50x10+10+20 +repage out.gif`  
+![a](images/roe.gif)  
 
 By the way, `+repage` readjusts the canvas to match the final image size after cropping. Without it, the original canvas remains with black background  
 `convert in.gif -crop 50x10+10+20 out.gif`  
+![a](images/ro.gif)  
 
 ---
 
