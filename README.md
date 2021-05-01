@@ -3,18 +3,18 @@
 <br>
 
 Example sprite sheet with consistent sprite sizes and no spacing or margins  
-![a](images/bob2.gif)  
+![a](images/chunk-39.png)  
 To extract the sprites, use tile cropping  
 \$ `convert bobs.gif -crop 32x32 +repage d%03d.gif`
 
 Results  
-![a](images/c028.png)
+![a](images/d312.gif) ![a](images/spacer.gif) ![a](images/d333.png) ![a](images/spacer.gif) ![a](images/d354.png) 
 
 ---
 
 To crop horizontal strips from a sprite sheet  
 \$ `convert bobs.gif -crop 0x32 +repage b%02d.gif`  
-![a](images/b01.png)
+![a](images/b01.png)  
 For vertical strips just swap the dimensions.
 
 Automatic filename numbering is done with `%02d` which means two digit numbers padded with zeroes, starting at 00. But what if we want it to start at 01? Use `null:`  
@@ -39,37 +39,15 @@ Example image
 Crop 10 pixels from the top  
 \$ `convert in.gif -crop +0+10 +repage ftop.gif`  
 ![a](images/ftop.gif)  
-Crop 10 pixels from the left  
-\$ `convert in.gif -crop +10+0 +repage fleft.gif`  
-![a](images/fleft.gif)  
 Crop 10 pixels from the right  
 \$ `convert in.gif -crop -10+0 +repage fright.gif`  
 ![a](images/fright.gif)  
-Crop 10px from the bottom  
-\$ `convert in.gif -crop +0-10 +repage fbtm.gif`  
-![a](images/fbtm.gif)
 
----
+Crop can also extract an area of the image if you include an offset  
+`convert in.gif -crop 50x10+10+20 +repage out.gif`  
 
-The origin (0,0) is in the upper-left corner.  
-Dimensions and offset take this syntax: (w)x(h)(+right)(+down).  
-The "-negate" option negatively colours an area.
-
-Negate an area, topL corner, 10px to the right, 20px down  
-\$ `magick rose: -region '100x200+10+20' -negate rNeg1.gif`  
-![a](images/rNeg1.gif)
-
-Area spills off the left edge  
-\$ `magick rose: -region '100x200-10+20' -negate rNeg2.gif`  
-![a](images/rNeg2.gif)
-
-Set the origin (0,0) to the centre. Negate an area below and left of the origin  
-\$ `magick rose: -gravity center -region '100x200-10+20' -negate rNeg3.gif`  
-![a](images/rNeg3.gif)
-
-Negate an area centre  
-\$ `magick rose: -gravity center -region '100x200' -negate rNeg4.gif`  
-![a](images/rNeg4.gif)
+By the way, `+repage` readjusts the canvas to match the final image size after cropping. Without it, the original canvas remains with black background  
+`convert in.gif -crop 50x10+10+20 out.gif`  
 
 ---
 
@@ -99,7 +77,7 @@ Built in images:
 xc: - Block colour. State the size  
 logo: - 640x480 ImageMagick Logo  
 wizard: - 480x640 ImageMagick mascot  
-rose: - 70x46, rose  
+rose: - 70x46 rose  
 null: - 1x1 transparent pixel
 
 Generate a builtin image  
@@ -137,6 +115,28 @@ To add a 1px white border to the left side (spritesheets)
 Rotate  
 \$ `convert in.jpg -rotate 90 out.jpg`  
 \$ `convert in.jpg -rotate -90 out.jpg`
+
+---
+
+The origin (0,0) is in the upper-left corner.  
+Dimensions and offset take this syntax: (w)x(h)(+right)(+down).  
+The "-negate" option negatively colours an area.
+
+Negate an area, topL corner, 10px to the right, 20px down  
+\$ `magick rose: -region '100x200+10+20' -negate rNeg1.gif`  
+![a](images/rNeg1.gif)
+
+Area spills off the left edge  
+\$ `magick rose: -region '100x200-10+20' -negate rNeg2.gif`  
+![a](images/rNeg2.gif)
+
+Set the origin (0,0) to the centre. Negate an area below and left of the origin  
+\$ `magick rose: -gravity center -region '100x200-10+20' -negate rNeg3.gif`  
+![a](images/rNeg3.gif)
+
+Negate an area centre  
+\$ `magick rose: -gravity center -region '100x200' -negate rNeg4.gif`  
+![a](images/rNeg4.gif)
 
 ---
 
