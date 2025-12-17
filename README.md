@@ -3,23 +3,23 @@
 <br>
 
 Example sprite sheet with consistent sprite sizes and no spacing or margins  
-![a](images/chunk-39.png)  
+![](images/chunk-39.png)  
 To extract the sprites, use tile cropping  
 `convert bobs.gif -crop 32x32 +repage d%03d.gif`
 
 Results  
-![a](images/d312.gif) ![a](images/spacer.gif) ![a](images/d333.gif) ![a](images/spacer.gif) ![a](images/d354.gif) 
+![](images/d312.gif) ![](images/spacer.gif) ![](images/d333.gif) ![](images/spacer.gif) ![](images/d354.gif)
 
 ---
 
 To crop horizontal strips from a sprite sheet  
 `convert bobs.gif -crop 0x32 +repage b%02d.gif`  
-![a](images/b01.png)  
+![](images/b01.png)  
 For vertical strips just swap the dimensions.
 
 Automatic filename numbering is done with `%02d` which means two digit numbers padded with zeroes, starting at 00. But what if we want it to start at 01? Use `null:`  
 `convert null: b00.gif -crop 32x0 +repage f%02d.gif`  
-![a](images/f01.gif) ![a](images/f02.gif)  
+![](images/f01.gif) ![](images/f02.gif)  
 ^ f01.gif ^ f02.gif
 
 ---
@@ -41,45 +41,49 @@ Crop 10 pixels from the top
 ![a](images/ftop.gif)  
 Crop 10 pixels from the right  
 `convert in.gif -crop -10+0 +repage fright.gif`  
-![a](images/fright.gif)  
+![a](images/fright.gif)
 
 Crop can also extract an area of the image if you include an offset  
 `convert in.gif -crop 50x10+10+20 +repage out.gif`  
-![a](images/roe.gif)  
+![a](images/roe.gif)
 
-By the way, `+repage` readjusts the canvas to match the final image size after cropping. Without it, the original canvas remains with transparent background  
+`+repage` readjusts the canvas to match the final image size after cropping. Without it, the original canvas remains with transparent background  
 `convert in.gif -crop 50x10+10+20 out.gif`  
-![a](images/ro.gif)  
+![](images/ro.gif)
 
 ---
 
 Example images  
-![a](images/d120.gif) , ![a](images/d121.gif), ![a](images/d131.gif)
+![](images/d120.gif) , ![](images/d121.gif), ![](images/d131.gif)
 
 Append the images in a row  
 `magick tvfuzz1.gif tvfuzz2.gif tvtest.gif +append tv1.gif`  
-![a](images/tvs1.gif)
+![](images/tvs1.gif)
 
 Append the images in a stack  
 `magick tvfuzz1.gif tvfuzz2.gif tvtest.gif -append tv2.gif`  
-![a](images/tvs2.gif)
+![](images/tvs2.gif)
+
+Arrange the images in a grid of maximum 3 columns with no padding  
+`magick montage *.gif -geometry +0 -tile 3x Out3Column.gif`  
+![](images/tvs3.gif)
 
 If the filenames follow a consistent number pattern then a Bash range can select several files  
 `magick d%03d.gif[9-11] +append tv1.gif`
 
 ---
 
-To generate an animated gif, use several input images and one output image. A Bash range can help  
+To generate an animated gif, use several input images and one output image, do not repage. A Bash range can help  
 `magick d00%d.gif[0-7] bl.gif`  
 ![a](images/ac.gif)
 
 ---
 
 Built in images:  
-xc: - Block colour. State the size  
 logo: - 640x480 ImageMagick Logo  
 wizard: - 480x640 ImageMagick mascot  
 rose: - 70x46 rose  
+xc: - Block colour. State the size and reserved colour name  
 null: - 1x1 transparent pixel
 
 Generate a builtin image  
@@ -89,7 +93,6 @@ Generate a builtin image
 Generate a black box  
 `convert -size 100x100 xc:black black.gif`  
 ![a](images/black.gif)
-
 
 ---
 
@@ -128,7 +131,7 @@ Negate an area, topL corner, 10px to the right, 20px down
 `magick rose: -region '100x200+10+20' -negate rNeg1.gif`  
 ![a](images/rNeg1.gif)
 
-Area spills off the left edge  
+The negated area spills off the left edge  
 `magick rose: -region '100x200-10+20' -negate rNeg2.gif`  
 ![a](images/rNeg2.gif)
 
@@ -143,6 +146,6 @@ Negate an area centre
 ---
 
 Tips:  
-Convert a PNG to GIF before cropping to see the whitespace that PNGs hide.  
-Pad the output to 3 digits with `%03d`, up to 999. Pad more if more than 10 by 10 tiles in a sheet.  
+To see the whitespace that PNGs hide, convert it to GIF before cropping.  
+Pad the output to 3 digits with `%03d`, up to 999. Pad more if there will be more than 10 by 10 tiles in a sheet.  
 Remember Bash tricks when selecting input images, globs, wildcards, ranges, expansions.
